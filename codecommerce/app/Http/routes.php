@@ -14,7 +14,6 @@ Route::post('admin/categories/{id}/update', ['as' => 'categorias.update', 'uses'
 Route::post('/admin/categories', 'AdminCategoriesController@store');
 
 
-
 //
 //
 //
