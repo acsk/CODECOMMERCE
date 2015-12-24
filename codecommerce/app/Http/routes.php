@@ -1,18 +1,32 @@
 <?php
 
-
+//
+//
+//
 //Rotas de Categorias
-Route::get('categorias',['as'=>'categorias','uses'=>'CategoryController@index']);
-Route::get('categorias/create',['as'=>'categorias.create','uses'=>'CategoryController@create']);
-Route::POST('categorias/store',['as'=>'categorias.store','uses'=>'CategoryController@store']);
-Route::get('categorias/{id}/destroy',['as'=>'categorias.destroy','uses'=>'CategoryController@destroy']);
-Route::get('categorias/{id}/edit',['as'=>'categorias.edit','uses'=>'CategoryController@edit']);
 
-Route::post('categorias/{id}/update',['as'=>'categorias.update','uses'=>'CategoryController@update']);
+Route::get('admin/categories', ['as' => 'categories', 'uses' => 'AdminCategoriesController@index']);
+Route::get('admin/categories/create', ['as' => 'categorias.create', 'uses' => 'AdminCategoriesController@create']);
+Route::POST('admin/categories/store', ['as' => 'categorias.store', 'uses' => 'AdminCategoriesController@store']);
+Route::get('admin/categories/{id}/destroy', ['as' => 'categorias.destroy', 'uses' => 'AdminCategoriesController@destroy']);
+Route::get('admin/categories/{id}/edit', ['as' => 'categorias.edit', 'uses' => 'AdminCategoriesController@edit']);
+Route::post('admin/categories/{id}/update', ['as' => 'categorias.update', 'uses' => 'AdminCategoriesController@update']);
+Route::post('/admin/categories', 'AdminCategoriesController@store');
 
 
-Route::post('/categorias','CategoryController@store');
-Route::get('/', function(){
+
+//
+//
+//
+//Rotas de Products
+
+Route::get('admin/products', ['as' => 'products', 'uses' => 'AdminProductsController@index']);
+
+//
+//
+//
+//Rotas de Home
+Route::get('/', function() {
 
     return 'Home';
 });

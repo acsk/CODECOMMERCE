@@ -8,9 +8,9 @@ use CodeCommerce\Http\Requests;
 use CodeCommerce\Http\Controllers\Controller;
 use Validator;
 
-class CategoryController extends Controller {
+class AdminCategoriesController extends Controller {
 
-    protected $fillable = array('name', 'description');
+   // protected $fillable = array('name', 'description');
     private $categoryModel;
 
     public function __construct(Category $categoryModel) {
@@ -33,7 +33,7 @@ class CategoryController extends Controller {
         $category = $this->categoryModel->fill($input);
         $category->save();
 
-        return redirect()->route('categorias');
+        return redirect()->route('categories');
     }
 
     public function edit($id) {
@@ -45,7 +45,7 @@ class CategoryController extends Controller {
     public function destroy($id) {
 
         $this->categoryModel->find($id)->delete();
-        return redirect()->route('categorias');
+        return redirect()->route('categories');
     }
 
     public function update(Requests\CategoryRequest $request, $id) {
@@ -53,7 +53,7 @@ class CategoryController extends Controller {
 
 
         $this->categoryModel->find($id)->update($input);
-        return redirect()->route('categorias');
+        return redirect()->route('categories');
     }
 
 }
