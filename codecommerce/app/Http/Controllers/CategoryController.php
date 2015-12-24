@@ -22,28 +22,14 @@ class CategoryController extends Controller {
         $categories = $this->categoryModel->all();
         return view('category.index', compact('categories'));
     }
+
     public function create() {
-       
+
         return view('category.create');
     }
 
-    public function store(Request $request) {
+    public function store(Requests\CategoryRequest $request) {
         $input = $request->all();
-
-        $rules = [
-            'name' => 'required',
-            'description' => 'required'
-        ];
-
-        $validator = Validator::make($input, $rules);
-
-        if ($validator->fails()) {
-            return redirect()->route('categorias.create')
-                            ->withErrors($validator)
-                            ->withInput();
-        }
-
-
         $category = $this->categoryModel->fill($input);
         $category->save();
 
@@ -61,9 +47,12 @@ class CategoryController extends Controller {
         $this->categoryModel->find($id)->delete();
         return redirect()->route('categorias');
     }
-    public function update(Request $request, $id) {
 
-        $this->categoryModel->find($id)->update($request->all());
+    public function update(Requests\CategoryRequest $request, $id) {
+        $input = $request->all();
+
+
+        $this->categoryModel->find($id)->update($input);
         return redirect()->route('categorias');
     }
 
