@@ -49,9 +49,8 @@ class AdminCategoriesController extends Controller {
     }
 
     public function update(Requests\CategoryRequest $request, $id) {
+
         $input = $request->all();
-
-
         $this->categoryModel->find($id)->update($input);
         return redirect()->route('categories');
     }

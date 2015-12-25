@@ -3,19 +3,18 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddColumnProducts extends Migration
-{
+class AddColumnProducts extends Migration {
+
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
+    public function up() {
         Schema::table('products', function (Blueprint $table) {
-         
-            $table->string('recommended');
-            $table->string('featured');
+
+            $table->string('recommended')->default(1);
+            $table->string('featured')->default(1);
         });
     }
 
@@ -24,11 +23,11 @@ class AddColumnProducts extends Migration
      *
      * @return void
      */
-    public function down()
-    {
+    public function down() {
         Schema::table('products', function (Blueprint $table) {
-              $table->dropColumn('recommended');
-              $table->dropColumn('featured');
+            $table->dropColumn('recommended');
+            $table->dropColumn('featured');
         });
     }
+
 }

@@ -6,7 +6,7 @@ use CodeCommerce\Product;
 use Illuminate\Http\Request;
 use CodeCommerce\Http\Requests;
 use CodeCommerce\Http\Controllers\Controller;
-
+use Validator;
 
 class AdminProductsController extends Controller {
 
@@ -22,31 +22,41 @@ class AdminProductsController extends Controller {
         return view('products.index', compact('products'));
     }
 
-   
     public function create() {
+
+        return view('products.create');
+    }
+
+    public function store(Requests\ProductRequest $request) {
+        $input = $request->all();
+        $product = $this->productModel->fill($input);
+        $product->save();
+
+        return redirect()->route('products');
+    }
+
+    public function show($id) {
         
     }
 
-    
-    public function store(Request $request) {
-       
-    }
-
-  
-    public function show($id) {
-       
-    }
-
-   
     public function edit($id) {
-      
+
+        $product = $this->productModel->find($id);
+        return view('products.edit', compact('product'));
     }
 
-    public function update(Request $request, $id) {
-       
+    public function update(Requests\ProductRequest $request, $id) {
+
+        $input = $request->all();
+        $this->productModel->find($id)->update($input);
+        return redirect()->route('products');
     }
+
     public function destroy($id) {
-      
+
+        $this->productModel->find($id)->delete();
+
+        return redirect()->route('products');
     }
 
 }
