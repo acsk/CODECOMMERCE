@@ -12,6 +12,7 @@ class ProductSeeder extends Seeder {
      * @return void
      */
     public function run() {
+        
         DB::table('products')->truncate();
         $faker = Faker::create();
 
@@ -22,7 +23,7 @@ class ProductSeeder extends Seeder {
                 'name' => $faker->name(),
                 'description' => $faker->sentence(),
                 'price' => $faker->randomNumber(2),
-                'category_id' => '1',
+                'category_id' => $faker->numberBetween(1,15)
             ]);
         }
     }
