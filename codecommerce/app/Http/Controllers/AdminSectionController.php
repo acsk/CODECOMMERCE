@@ -3,10 +3,11 @@
 namespace CodeCommerce\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use CodeCommerce\Http\Requests;
 use CodeCommerce\Http\Controllers\Controller;
 
-class AdminHomeController extends Controller
+class AdminSectionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +16,7 @@ class AdminHomeController extends Controller
      */
     public function index()
     {
-       return view('site.home.index');
+        //
     }
 
     /**

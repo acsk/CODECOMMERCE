@@ -29,7 +29,7 @@
                 <td>{{$prod->name}}</td>
                 <td>{{$prod->description}}</td>
                 <td>{{$prod->price}}</td>
-                <td>{{$prod->category->id}} | {{$prod->category->name}}  </td>
+                <td> {{$prod->category->name}}  </td>
 
                 <td>
                     <a href="{{route('products.destroy',['id'=> $prod->id])}}">Delete</a> | 
@@ -40,7 +40,7 @@
             </tr>
             @endforeach
         </table>
-
+        {!! $products->render() !!}
     </div>
 
 </div>

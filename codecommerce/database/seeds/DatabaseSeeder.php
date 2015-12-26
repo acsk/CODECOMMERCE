@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder {
         
         $this->call('CategorySeeder');
         $this->call('ProductSeeder');
+        $this->call('SectionSeeder');
 
         // supposed to only apply to a single connection and reset it's self
         // but I like to explicitly undo what I've done for clarity

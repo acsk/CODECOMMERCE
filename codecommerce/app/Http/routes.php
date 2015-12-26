@@ -3,7 +3,7 @@
 //
 //
 //Rotas de Categorias
-Route::group(['prefix' => 'admin/categories'], function () {
+Route::group(['prefix' => 'admin/categories', 'where' => ['id'=> '[0-9]+']], function () {
     
     Route::get('/', ['as' => 'categories', 'uses' => 'AdminCategoriesController@index']);
     Route::get('/create', ['as' => 'categorias.create', 'uses' => 'AdminCategoriesController@create']);
@@ -32,10 +32,13 @@ Route::post('/{id}/update', ['as' => 'products.update', 'uses' => 'AdminProducts
 //
 //
 //Rotas de Home
-Route::get('/', function() {
+//Route::get('/', function() {
+//
+//    return 'Home';
+//});
 
-    return 'Home';
-});
 
+
+Route::get('/',  ['as' => 'home', 'uses' => 'AdminHomeController@index']);
 
 
