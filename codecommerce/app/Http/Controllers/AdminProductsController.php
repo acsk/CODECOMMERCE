@@ -10,7 +10,7 @@ use CodeCommerce\Category;
 class AdminProductsController extends Controller {
 
     private $productModel;
-
+   
     public function __construct(Product $productModel) {
 
         $this->productModel = $productModel;
@@ -59,5 +59,14 @@ class AdminProductsController extends Controller {
 
         return redirect()->route('products');
     }
-
+     
+    
+    
+    public function images($id){
+       
+        $product = $this->model->find($id);
+               
+        return view ('products.images', compact('product'));
+        
+    }
 }

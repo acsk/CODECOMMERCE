@@ -13,8 +13,8 @@ class AddColumnProducts extends Migration {
     public function up() {
         Schema::table('products', function (Blueprint $table) {
 
-            $table->string('recommended')->default(1);
-            $table->string('featured')->default(1);
+            $table->boolean('recommended')->default(1);
+            $table->boolean('featured')->default(1);
         });
     }
 
