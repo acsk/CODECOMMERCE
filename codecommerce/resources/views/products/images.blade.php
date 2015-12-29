@@ -2,7 +2,7 @@
 
 @section('content')
 <br>
-<h1>Images of  {{$imagens->image}} | {{$imagens->extension}} | {{$imagens->id}}</h1>
+<h1>Images of  {{$product->name}}</h1>
 
 
 
@@ -21,17 +21,19 @@
                 <th>Action</th>
 
             </tr>
-           
-            <tr>
-                <td>{{$imagens->id }}</td> 
-                <td></td> 
-                <td></td> 
-                <td></td> 
 
-
-                </td>
-
-            </tr>
+            @foreach($product->images as $image)
+                <tr>
+                    <td>{{$image->id}}</td>
+                    <td>
+                        <img src="{{ url('uploads/'.$image->id.".".$image->extension) }}" width="80">
+                    </td>
+                    <td>{{$image->extension}}</td>
+                    <td>
+                        <a href="#">Delete</a>
+                    </td>
+                </tr>
+            @endforeach
            
         </table>
 
@@ -40,4 +42,3 @@
 </div>
 
 @endsection
-

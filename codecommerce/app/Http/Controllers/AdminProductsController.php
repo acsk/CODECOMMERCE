@@ -63,12 +63,17 @@ class AdminProductsController extends Controller {
         return redirect()->route('products');
     }
 
-    public function images($id, ProductImage $ProductImage) {
-
-        $imagens = $ProductImage->find($id);
-        // $product = $this->imageModel->find($id);
-
-        return view('products.images', compact('imagens'));
-    }
+//    public function images($id, ProductImage $ProductImage) {
+//
+//        $imagens = $ProductImage->find($id);
+//        // $product = $this->imageModel->find($id);
+//
+//        return view('products.images', compact('imagens'));
+//    }
+    
+    public function images($id) {
+    $product = $this->productModel->find($id);
+    return view('products.images', compact('product'));
+}
 
 }

@@ -21,8 +21,11 @@ class CategoryRequest extends Request {
      * @return array
      */
     public function rules() {
+        //'email' => 'unique:users,email_address,'.$user->id
+        $name = $this->get('id');
+
         return [
-            'name' => 'required|min:5',
+            'name' => "required|min:5|unique:categories, name, $name",
             'description' => 'required'
         ];
     }
