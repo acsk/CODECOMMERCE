@@ -4,8 +4,8 @@ namespace CodeCommerce\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
-class Kernel extends HttpKernel
-{
+class Kernel extends HttpKernel {
+
     /**
      * The application's global HTTP middleware stack.
      *
@@ -17,7 +17,7 @@ class Kernel extends HttpKernel
         \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-        \CodeCommerce\Http\Middleware\VerifyCsrfToken::class,
+            // \CodeCommerce\Http\Middleware\VerifyCsrfToken::class,
     ];
 
     /**
@@ -29,5 +29,7 @@ class Kernel extends HttpKernel
         'auth' => \CodeCommerce\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \CodeCommerce\Http\Middleware\RedirectIfAuthenticated::class,
+        'csrf' => 'App\Http\Middleware\VerifyCsrfToken'// add it as a middleware route 
     ];
+
 }

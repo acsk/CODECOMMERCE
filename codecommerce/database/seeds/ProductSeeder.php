@@ -14,7 +14,7 @@ class ProductSeeder extends Seeder {
     public function run() {
         
         DB::table('products')->truncate();
-        $faker = Faker::create();
+        $faker = Faker::create('pt_BR');
 
         foreach (range(1, 50) as $i) {
 

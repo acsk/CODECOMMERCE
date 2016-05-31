@@ -5,7 +5,7 @@
 <h1>Images of  {{$product->name}}</h1>
 
 
-
+<a href="#" class="btn btn-default">New Image</a>
 <br>
 <br>
 

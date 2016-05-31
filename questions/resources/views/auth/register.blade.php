@@ -1,0 +1,44 @@
+
+@extends('template.appLogin')
+
+@section('content')
+
+@if ($errors->any())
+<div class="alert alert-danger">
+    
+    @foreach($errors->all() as $error)
+    <p>{{$error}}</p>
+    
+    @endforeach
+</div>
+@endif
+
+<form method="POST" action="/auth/register">
+    {!! csrf_field() !!}
+
+    <div class="form-group">
+        Name
+        <input type="text" name="name" value="{{ old('name') }}" class="form-control">
+    </div>
+
+    <div class="form-group">
+        Email
+        <input type="email" name="email" value="{{ old('email') }}" class="form-control">
+    </div>
+
+    <div class="form-group">
+        Password
+        <input type="password" name="password" class="form-control">
+    </div>
+
+    <div class="form-group">
+        Confirm Password
+        <input type="password" name="password_confirmation" class="form-control">
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">Registrar</button>
+    </div>
+</form>
+
+@endsection

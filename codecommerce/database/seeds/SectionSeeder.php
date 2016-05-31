@@ -14,7 +14,7 @@ class SectionSeeder extends Seeder
     public function run() {
         
         DB::table('sections')->truncate();
-        $faker = Faker::create();
+        $faker = Faker::create('pt_BR');
 
         foreach (range(1, 4) as $i) {
 
